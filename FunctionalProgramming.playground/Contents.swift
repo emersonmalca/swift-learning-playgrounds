@@ -98,8 +98,8 @@ files
 // 3. filter()
 // Iterate through items and returns the ones that return true
 let fibonacciNumbers = [1, 1, 2, 5, 8, 13, 21, 34, 55]
-let eventFibonacci = fibonacciNumbers.filter { $0 % 2 == 0 }
-eventFibonacci
+let evenFibonacci = fibonacciNumbers.filter { $0 % 2 == 0 }
+evenFibonacci
 
 let words = ["1989", "Fearless", "Red"]
 let inputString = "My fav album is Fearless"
@@ -109,6 +109,10 @@ filteredResults
 let moreScores = ["Paul": 100, "Taylor": 95]
 let goodScores = moreScores.filter { $1 > 95 } // This will return an array of tuples
 goodScores
+
+let persons = [(name:"Emerson", age:28, lastName:"Malca"), (name:"Haider", age:24, lastName:"Khan")]
+let coolPeople = persons.filter { $2 == "Malca" }
+coolPeople
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -204,7 +208,7 @@ infix operator >>> { associativity left }
 // lsh: function that takes a T and returns a U
 // rhs: function that takes a U and returns a V
 // returns a function that takes T and returns V
-func  >>><T, U, V>(lhs: T -> U, rhs: U -> V) -> T -> V {
+func  >>><T, U, V>(lhs: T -> U, rhs: U -> V) -> (T -> V) {
     return { rhs(lhs($0)) }
 }
 

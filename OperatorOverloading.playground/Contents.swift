@@ -94,6 +94,21 @@ let range = 1...10...1
 
 
 
+// ------------------------------------------------------------------------------------------------------------------------
+
+// More modifying existing operators for arrays of different types
+
+let strings = ["A", "B"]
+let nums = [1, 2]
+
+func +(lhs: [String], rhs: [Int]) -> [String] {
+    let rhsStrings = rhs.map { String($0) }
+    return lhs + rhsStrings
+}
+
+let joined = strings + nums
+
+
 
 
 
